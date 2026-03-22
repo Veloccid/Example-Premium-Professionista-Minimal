@@ -1,0 +1,235 @@
+/* --- VARIABILI GLOBALI --- */
+/* Definiamo i colori principali qui, così se vogliamo cambiarli basta farlo in un solo punto */
+:root {
+    --color-bg: #ffffff; /* Sfondo bianco puro */
+    --color-text: #111111; /* Testo quasi nero, più elegante del nero assoluto */
+    --color-gray: #f5f5f5; /* Grigio chiarissimo per sfondi alternati */
+    --color-dark-gray: #888888; /* Grigio medio per i sottotitoli */
+    --font-main: 'Inter', sans-serif; /* Il font che abbiamo importato */
+}
+
+/* --- RESET DI BASE --- */
+/* Rimuove i margini predefiniti dei browser che creano spazi indesiderati */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Fa in modo che padding e bordi non allarghino gli elementi */
+}
+
+/* --- STILI GENERALI (BODY) --- */
+body {
+    font-family: var(--font-main); /* Applica il font Inter a tutto il sito */
+    color: var(--color-text); /* Colore del testo principale */
+    background-color: var(--color-bg); /* Colore di sfondo */
+    line-height: 1.6; /* Aumenta lo spazio tra le righe per facilitare la lettura (stile premium) */
+    overflow-x: hidden; /* Evita fastidiosi scorrimenti orizzontali su mobile */
+}
+
+/* --- CLASSI DI UTILITA' --- */
+/* Un contenitore che tiene il sito centrato e non lo fa allargare all'infinito su schermi enormi */
+.container {
+    max-width: 1100px; /* Larghezza massima del contenuto */
+    margin: 0 auto; /* Centra il contenitore orizzontalmente */
+    padding: 0 20px; /* Aggiunge spazio ai lati sui telefoni */
+}
+
+/* Una classe base per dare ampio respiro a tutte le sezioni */
+.section {
+    padding: 120px 0; /* 120px di spazio sopra e sotto: il segreto del design minimalista! */
+}
+
+/* Sfondo alternativo per staccare le sezioni */
+.bg-light {
+    background-color: var(--color-gray);
+}
+
+/* Titoli delle sezioni */
+.section-title {
+    font-size: 2rem; /* Grandezza del testo */
+    font-weight: 300; /* Testo "sottile" ed elegante */
+    text-transform: uppercase; /* Trasforma il testo in MAIUSCOLO */
+    letter-spacing: 2px; /* Aumenta lo spazio tra le lettere (molto premium) */
+    margin-bottom: 60px; /* Spazio sotto il titolo prima del contenuto */
+    text-align: center; /* Centra il titolo */
+}
+
+/* --- BOTTONI --- */
+.btn {
+    display: inline-block; /* Permette di dare padding e margini al link */
+    padding: 15px 40px; /* Spazio interno del bottone */
+    background-color: transparent; /* Sfondo trasparente */
+    color: var(--color-text); /* Testo nero */
+    text-decoration: none; /* Rimuove la sottolineatura tipica dei link */
+    border: 1px solid var(--color-text); /* Bordo nero sottile */
+    font-weight: 600; /* Testo leggermente grassetto */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Anima qualsiasi cambiamento di stato (es. hover) in 0.3 secondi */
+    cursor: pointer;
+}
+
+/* Effetto quando il mouse passa sopra il bottone (Hover) */
+.btn:hover {
+    background-color: var(--color-text); /* Lo sfondo diventa nero */
+    color: var(--color-bg); /* Il testo diventa bianco */
+}
+
+/* Variante del bottone con sfondo già scuro */
+.btn-dark {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+.btn-dark:hover {
+    background-color: transparent;
+    color: var(--color-text);
+}
+
+/* --- HERO SECTION (Intestazione) --- */
+.hero {
+    height: 100vh; /* Occupa esattamente il 100% dell'altezza dello schermo (Viewport Height) */
+    display: flex; /* Attiva Flexbox per allineare gli elementi facilmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 4rem; /* Molto grande */
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -1px; /* Stringe leggermente i titoli grandi per un look moderno */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* --- SEZIONE CHI SONO --- */
+.about-content {
+    display: flex; /* Mette immagine e testo affiancati */
+    align-items: center;
+    gap: 60px; /* Spazio tra immagine e testo */
+}
+
+.about-img {
+    width: 400px; /* Larghezza fissa */
+    height: 500px; /* Altezza fissa */
+    object-fit: cover; /* Taglia l'immagine senza deformarla per riempire lo spazio */
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #444; /* Grigio scuro per la leggibilità */
+}
+
+/* --- SEZIONE SERVIZI (Cards) --- */
+.grid {
+    display: grid; /* Attiva CSS Grid per impaginare a colonne */
+    grid-template-columns: repeat(3, 1fr); /* Crea 3 colonne di larghezza uguale (1 frazione) */
+    gap: 40px; /* Spazio tra le card */
+}
+
+.card {
+    background: var(--color-bg);
+    padding: 40px;
+    border: 1px solid #eaeaea; /* Bordino grigio molto leggero */
+    transition: transform 0.3s ease; /* Anima il movimento della card */
+}
+
+/* Quando il mouse passa sulla card, questa si solleva leggermente */
+.card:hover {
+    transform: translateY(-10px); /* Muove l'elemento in alto (Y negativo) di 10 pixel */
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* --- SEZIONE PORTFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne uguali */
+    gap: 20px; /* Spazio ridotto tra le immagini per un effetto galleria compatta */
+}
+
+.portfolio-img {
+    width: 100%; /* L'immagine riempie la sua colonna */
+    height: 300px;
+    object-fit: cover; /* Evita distorsioni */
+    transition: opacity 0.3s ease;
+}
+
+/* Effetto: scurisce leggermente le immagini al passaggio del mouse */
+.portfolio-img:hover {
+    opacity: 0.8;
+}
+
+/* --- CALL TO ACTION FINALE --- */
+.cta-section {
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.cta-section p {
+    margin-bottom: 40px;
+    color: var(--color-dark-gray);
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #eaeaea; /* Linea separatrice in alto */
+    font-size: 0.9rem;
+    color: var(--color-dark-gray);
+}
+
+/* --- RESPONSIVE DESIGN (Per Smartphone e Tablet) --- */
+/* Queste regole si attivano SOLO se lo schermo è più stretto di 768px */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem; /* Rimpicciolisce il titolo della hero */
+    }
+    
+    .about-content {
+        flex-direction: column; /* Incolonna immagine e testo invece di affiancarli */
+    }
+    
+    .about-img {
+        width: 100%; /* L'immagine prende tutto lo spazio sul telefono */
+        height: auto;
+    }
+    
+    .grid, .portfolio-grid {
+        grid-template-columns: 1fr; /* Le griglie passano da 3 colonne a 1 colonna singola */
+    }
+    
+    .section {
+        padding: 80px 0; /* Riduce gli spazi vuoti sui telefoni piccoli */
+    }
+}
+
+/* --- ANIMAZIONI SCROLL --- */
+/* Stato iniziale degli elementi prima dell'animazione */
+.fade-in {
+    opacity: 0; /* Elemento invisibile */
+    transform: translateY(40px); /* Spostato in basso di 40px */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Durata e fluidità dell'animazione */
+}
+
+/* Questa classe verrà aggiunta da JavaScript quando l'elemento entra nello schermo */
+.fade-in.visible {
+    opacity: 1; /* Diventa totalmente visibile */
+    transform: translateY(0); /* Ritorna alla sua posizione originale (0px) creando un effetto "scorrimento verso l'alto" */
+}
